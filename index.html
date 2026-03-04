@@ -5,24 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KOMAYA - The Bag Studio</title>
 
-<!-- Font Awesome for Social Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-
 body{
     margin:0;
     font-family:Arial, sans-serif;
 }
 
-/* HEADER */
+/* HEADER (HEIGHT INCREASED 200%) */
 header{
     position:fixed;
     top:0;
     width:100%;
     background:#008080;
     color:white;
-    padding:10px 25px;
+    padding:25px 25px; /* increased */
     z-index:1000;
     display:flex;
     align-items:center;
@@ -30,54 +28,46 @@ header{
     box-sizing:border-box;
 }
 
-/* LEFT BRAND */
 .brand{
     display:flex;
     align-items:center;
-    gap:10px;
+    gap:15px;
 }
 
 .logo{
-    height:40px;
-    width:auto;
-}
-
-.brand-text{
-    display:flex;
-    flex-direction:column;
+    height:80px;
 }
 
 .brand-name{
-    font-size:22px;
+    font-size:55px;
     font-weight:bold;
-    line-height:1;
 }
 
 .brand-sub{
-    font-size:12px;
-    opacity:0.9;
+    font-size:14px;
 }
 
-/* RIGHT SOCIAL */
 .social-links{
     display:flex;
     align-items:center;
-    gap:18px;
+    gap:20px;
 }
 
 .social-links a{
-    font-size:22px;
+    font-size:24px;
     text-decoration:none;
-    display:flex;
-    align-items:center;
 }
 
-.social-links .fa-instagram{
-    color:#E1306C;
-}
+.fa-instagram{ color:#E1306C; }
+.fa-youtube{ color:#FF0000; }
 
-.social-links .fa-youtube{
-    color:#FF0000;
+.cart-icon{
+    background:white;
+    color:#008080;
+    padding:8px 18px;
+    border-radius:25px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
 /* FOOTER */
@@ -88,84 +78,18 @@ footer{
     background:#111;
     color:white;
     text-align:center;
-    padding:10px;
+    padding:12px;
     font-size:14px;
     z-index:1000;
 }
 
-/* RIGHT SIDEBAR */
-.notice-section{
-    position:fixed;
-    top:80px;
-    right:0;
-    width:240px;
-    height:calc(100vh - 160px);
-    background:#f4f9f9;
-    border-left:2px solid #008080;
-    padding:15px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-}
-
-.notice-title{
-    font-weight:bold;
-    color:#008080;
-    margin-bottom:15px;
-    text-align:center;
-    font-size:16px;
-}
-
-/* SCROLLING TEXT */
-.notice-content{
-    font-size:14px;
-    line-height:1.8;
-    overflow:hidden;
-    height:200px;
-    position:relative;
-}
-
-.notice-content div{
-    position:absolute;
-    width:100%;
-    animation:scrollUp 12s linear infinite;
-}
-
-/* 🔥 STOP ANIMATION ON HOVER */
-.notice-content:hover div{
-    animation-play-state:paused;
-}
-
-@keyframes scrollUp{
-    0%{ transform:translateY(100%); }
-    100%{ transform:translateY(-100%); }
-}
-
-/* POLICY */
-.policy-box{
-    border-top:1px solid #ccc;
-    padding-top:10px;
-    font-size:13px;
-}
-
-.policy-box button{
-    margin-top:8px;
-    padding:6px 12px;
-    border:none;
-    background:#008080;
-    color:white;
-    border-radius:20px;
-    cursor:pointer;
-}
-
 /* MAIN CONTENT */
 .main-content{
-    margin-right:260px;
-    padding-top:80px;
+    padding-top:140px; /* adjusted for bigger header */
     padding-bottom:100px;
 }
 
-/* PRODUCTS GRID */
+/* PRODUCTS */
 .products{
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
@@ -173,7 +97,6 @@ footer{
     padding:20px;
 }
 
-/* PRODUCT CARD */
 .product-card{
     position:relative;
     border:1px solid #e0e0e0;
@@ -195,6 +118,7 @@ footer{
     object-fit:cover;
 }
 
+/* PRICE TAG */
 .price-tag{
     position:absolute;
     top:12px;
@@ -214,106 +138,149 @@ footer{
     font-weight:bold;
 }
 
-.price{
-    font-size:16px;
-    margin-bottom:10px;
-}
-
+/* DARK TEAL BUTTON */
 .btn{
-    background-color:#008080;
+    background-color:#004c4c;
     color:white;
-    padding:10px 18px;
+    padding:8px 15px;
     border:none;
     border-radius:25px;
     cursor:pointer;
+    margin-top:8px;
 }
 
 .btn:hover{
-    background-color:#006666;
+    background-color:#003333;
 }
 
-/* MOBILE */
-@media(max-width:768px){
-    .notice-section{
-        position:relative;
-        width:100%;
-        height:auto;
-        border-left:none;
-        border-bottom:2px solid #008080;
-    }
-    .main-content{
-        margin-right:0;
-    }
-    header{
-        flex-direction:column;
-        align-items:flex-start;
-    }
-    .social-links{
-        margin-top:8px;
-    }
+/* REMOVE BUTTON */
+.remove-btn{
+    background:#c0392b;
+    color:white;
+    border:none;
+    padding:5px 10px;
+    border-radius:15px;
+    cursor:pointer;
+    font-size:12px;
 }
 
+/* CART SIDEBAR */
+.cart-sidebar{
+    position:fixed;
+    top:0;
+    right:-400px;
+    width:350px;
+    height:100%;
+    background:white;
+    box-shadow:-5px 0 15px rgba(0,0,0,0.2);
+    transition:0.4s;
+    z-index:2000;
+    display:flex;
+    flex-direction:column;
+}
+
+.cart-sidebar.active{
+    right:0;
+}
+
+.cart-header{
+    background:#008080;
+    color:white;
+    padding:20px;
+    font-weight:bold;
+    display:flex;
+    justify-content:space-between;
+}
+
+.cart-items{
+    flex:1;
+    overflow-y:auto;
+    padding:15px;
+}
+
+.cart-item{
+    border-bottom:1px solid #eee;
+    padding:10px 0;
+    font-size:14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.cart-footer{
+    padding:15px;
+    border-top:1px solid #ccc;
+}
+
+.cart-footer button{
+    width:100%;
+    margin-top:8px;
+}
+
+.policy-box{
+    font-size:13px;
+    margin-top:10px;
+}
 </style>
 </head>
+
 <body>
 
 <header>
-
-    <div class="brand">
-        <img src="logo.jpeg" class="logo" alt="KOMAYA Logo">
-        <div class="brand-text">
-            <div class="brand-name">KOMAYA</div>
-            <div class="brand-sub">The Bag Studio by KOMAYA GROUPS</div>
-        </div>
-    </div>
-
-    <div class="social-links">
-        <a href="https://www.instagram.com/" target="_blank">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.youtube.com/" target="_blank">
-            <i class="fab fa-youtube"></i>
-        </a>
-    </div>
-
-</header>
-
-<!-- RIGHT SIDEBAR -->
-<div class="notice-section">
-
-    <div>
-        <div class="notice-title">Important Links & Terms</div>
-
-        <div class="notice-content">
-            <div>
-                🔥 Trusted Brand <br><br>
-                📦 Secure Shipping by INDIA POST <br><br>
-                💳 Easy Payment <br><br>
-                🚚 Customer Support on MAIL <br><br>
-                📧 MAIL-komayagroups@gmail.com
-            </div>
-        </div>
-    </div>
-
-    <div class="policy-box">
-        <input type="checkbox" id="agreePolicy"> I agree to Policy  
-        <br>
-        <button onclick="showPolicy()">View Policy</button>
-    </div>
-
+<div class="brand">
+<img src="logo.jpeg" class="logo">
+<div>
+<div class="brand-name">KOMAYA</div>
+<div class="brand-sub">The Bag Studio by KOMAYA GROUPS</div>
+</div>
 </div>
 
+<div style="display:flex; align-items:center; gap:20px;">
+<div class="social-links">
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-youtube"></i></a>
+</div>
+
+<div class="cart-icon" onclick="toggleCart()">
+🛒 <span id="cartCount">0</span>
+</div>
+</div>
+</header>
+
 <div class="main-content">
-    <div class="products" id="productContainer"></div>
+<div class="products" id="productContainer"></div>
 </div>
 
 <footer>
 © 2026 KOMAYA | Support: komayagroups@gmail.com
 </footer>
 
-<script>
+<div class="cart-sidebar" id="cartSidebar">
+<div class="cart-header">
+Your Cart
+<span onclick="toggleCart()" style="cursor:pointer;">✖</span>
+</div>
 
+<div class="cart-items" id="cartItems"></div>
+
+<div class="cart-footer">
+<strong>Total: ₹<span id="cartTotal">0</span></strong>
+
+<div class="policy-box">
+<input type="checkbox" id="agreePolicy"> I agree to Policy  
+<br>
+<button onclick="showPolicy()">View Policy</button>
+</div>
+
+<button class="btn" onclick="checkoutCart()">Order Now</button>
+<button class="btn" style="background:#25D366;" onclick="chatSeller()">Chat With Seller</button>
+</div>
+</div>
+
+<script>
 const container=document.getElementById("productContainer");
+let cart=[];
+let total=0;
 
 const priceList={
 1:999,2:1099,3:799,4:699,5:699,6:699,
@@ -324,7 +291,6 @@ let totalProducts=50;
 let maxAvailableImages=13;
 
 for(let i=1;i<=totalProducts;i++){
-
 let imageIndex=i<=maxAvailableImages?i:((i-1)%maxAvailableImages)+1;
 let paddedNumber=String(i).padStart(3,'0');
 let price=priceList[imageIndex]?priceList[imageIndex]:"NA";
@@ -332,47 +298,75 @@ let price=priceList[imageIndex]?priceList[imageIndex]:"NA";
 let productCard=`
 <div class="product-card">
 <div class="price-tag">${price==="NA"?"NA":"₹"+price}</div>
-<img src="bag${imageIndex}.jpeg"
+<img src="bag${imageIndex}.jpeg" 
 onerror="this.onerror=null;this.src='bag${imageIndex}.jpg';">
 <div class="product-name">KG Bag ${paddedNumber}</div>
-<div class="price">${price==="NA"?"NA":"₹"+price}</div>
-<button class="btn"
-onclick="orderNow('KG Bag ${paddedNumber}','${price}','bag${imageIndex}.jpeg')">
-Order on WhatsApp
+<button class="btn" onclick="addToCart('KG Bag ${paddedNumber}','${price}','bag${imageIndex}.jpeg')">
+Add to Cart
 </button>
 </div>
 `;
-
 container.innerHTML+=productCard;
 }
 
-function orderNow(productName,price,imageName){
+function addToCart(name,price,image){
+if(price==="NA"){ alert("Price not available."); return; }
+cart.push({name,price,image});
+total+=parseInt(price);
+updateCartUI();
+}
 
-let isChecked=document.getElementById("agreePolicy").checked;
+function updateCartUI(){
+document.getElementById("cartCount").innerText=cart.length;
+document.getElementById("cartTotal").innerText=total;
 
-if(!isChecked){
-alert("Please accept term & Policy in Important links & Terms bottom section before placing your order.");
+let itemsHTML="";
+cart.forEach((item,index)=>{
+itemsHTML+=`
+<div class="cart-item">
+<div>
+${item.name}<br>₹${item.price}
+</div>
+<button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+</div>`;
+});
+document.getElementById("cartItems").innerHTML=itemsHTML;
+}
+
+function removeItem(index){
+total-=parseInt(cart[index].price);
+cart.splice(index,1);
+updateCartUI();
+}
+
+function toggleCart(){
+document.getElementById("cartSidebar").classList.toggle("active");
+}
+
+function checkoutCart(){
+if(!document.getElementById("agreePolicy").checked){
+alert("Please accept policy before ordering.");
+return;
+}
+if(cart.length===0){
+alert("Cart is empty.");
 return;
 }
 
-if(price==="NA"){
-alert("Price not available. Please contact us on WhatsApp.");
-return;
+let message="🛍️ New Cart Order - KOMAYA 👜\n\n";
+
+cart.forEach(item=>{
+let imageURL=window.location.origin+"/"+item.image;
+message+=`${item.name}\nPrice: ₹${item.price}\nImage: ${imageURL}\n\n`;
+});
+
+message+=`Total: ₹${total}`;
+
+window.open("https://wa.me/919145945960?text="+encodeURIComponent(message),'_blank');
 }
 
-let imageURL=window.location.origin+"/"+imageName;
-
-var message=`🛍️ New Order Request - KOMAYA 👜
-Product: ${productName}
-💰 Price: ₹${price}
-📸 Product Image: ${imageURL}
-
-Kindly confirm availability & share payment details.
-Thank you.`;
-
-var whatsappURL="https://wa.me/919145945960?text="+encodeURIComponent(message);
-
-window.open(whatsappURL,'_blank');
+function chatSeller(){
+window.open("https://wa.me/919145945960",'_blank');
 }
 
 function showPolicy(){
@@ -386,7 +380,6 @@ alert(`KOMAYA Policy:
 
 Support: komayagroups@gmail.com`);
 }
-
 </script>
 
 </body>
