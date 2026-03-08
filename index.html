@@ -305,7 +305,7 @@ header{ flex-direction:column; align-items:flex-start; gap:10px; }
 </header>
 
 <div class="marquee">
-<span>✨ New Updates Live | 🚚 All India Shipping (Free) | 💎 Premium Quality Collection | 🔥 Limited Stock Available ✨</span>
+<span>🚚 All India Shipping (Free) | 💎 Premium Quality Collection | 🔥 DISCLAIMER:-If any logo or design of product shown in this video matches any other brand logo or design, then it is ONLY IMAGINARY.We have no intention to damage the reputation of any brand.We are not responsible for any damage related to trademarked logo or design.All Rights Reserved to the Respective Owners.✨</span>
 </div>
 
 <div class="main-content">
@@ -343,10 +343,10 @@ const container=document.getElementById("productContainer");
 let cart=[];
 let total=0;
 
-const priceList={1:999,2:1099,3:799,4:699,5:699,6:699,7:799,8:799,9:1199,10:1099,11:799,12:599,13:699};
+const priceList={1:1099,2:699,3:1099,4:699,5:1099,6:699,7:1099,8:799,9:1199,10:799,11:799};
 
 for(let i=1;i<=50;i++){
-let imageIndex=i<=13?i:((i-1)%13)+1;
+let imageIndex=i<=11?i:((i-1)%11)+1;
 let paddedNumber=String(i).padStart(3,'0');
 let price=priceList[imageIndex]?priceList[imageIndex]:"NA";
 
